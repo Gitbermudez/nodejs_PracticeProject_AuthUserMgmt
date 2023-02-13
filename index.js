@@ -36,10 +36,12 @@ const app = express();
 //as a middleware to intercept the requests and ensure that the session 
 //is valid before processing the request.
 //app.use(session({secret:"fingerpint"},resave=true,saveUninitialized=true));
-app.use(session({secret:"fingerpint"}))
 
 app.use(express.json());
 
+app.use(session({secret:"fingerpint"}))
+
+app.use(express.json());
 //6.0 You will now ensure that all operations restricted to auhtenticated users are intercepted by the middleware.
 //The following code ensures that all the endpoints starting with /friends go through the middleware..
 //It retrieves the authorization details from the session and verifies it.
